@@ -9,3 +9,7 @@ it('should set `status` property', function() {
   assert.equal(Error('blah').http(404).status, 404)
 })
 
+it('should create default message if not present', function() {
+  assert.equal(Error().http(418).message, "I'm a teapot")
+})
+

@@ -17,6 +17,11 @@ require('util').inherits(global.Error, Error)
 // chaining setter for "status"
 Error.prototype.http = function(status) {
   this.status = status
+
+  if (!this.message && http.STATUS_CODES.hasOwnProperty(status)) {
+    this.message = http.STATUS_CODES[status]
+  }
+
   return this
 }
 
